@@ -1,6 +1,5 @@
 ---
-template: overrides/main.html
-icon: material/chart-gantt
+icon: material/graph-outline
 ---
 
 # Diagrams
@@ -10,13 +9,11 @@ different technical components, and are a great addition to project
 documentation. Material for MkDocs integrates with [Mermaid.js], a very
 popular and flexible solution for drawing diagrams.
 
-  [Mermaid.js]: https://mermaid-js.github.io/mermaid/
+  [Mermaid.js]: https://mermaid.js.org/
 
 ## Configuration
 
-[:octicons-heart-fill-24:{ .mdx-heart } Insiders][Insiders]{ .mdx-insiders } ·
-[:octicons-tag-24: insiders-1.15.0][Insiders] ·
-:octicons-beaker-24: Experimental
+<!-- md:version 8.2.0 -->
 
 This configuration enables native support for [Mermaid.js] diagrams. Material
 for MkDocs will automatically initialize the JavaScript runtime when a page 
@@ -41,12 +38,13 @@ No further configuration is necessary. Advantages over a custom integration:
   [^1]:
     While all [Mermaid.js] features should work out-of-the-box, Material for
     MkDocs will currently only adjust the fonts and colors for flowcharts,
-    sequence diagrams, class diagams, state diagrams and entity relationship 
-    diagrams.
+    sequence diagrams, class diagrams, state diagrams and entity relationship 
+    diagrams. See the section on [other diagrams] for more information why this
+    is currently not implemented for all diagrams.
 
-  [Insiders]: ../insiders/index.md
   [instant loading]: ../setup/setting-up-navigation.md#instant-loading
   [additional style sheets]: ../customization.md#additional-css
+  [other diagrams]: #other-diagram-types
 
 ## Usage
 
@@ -80,7 +78,7 @@ graph LR
 
 </div>
 
-  [Flowcharts]: https://mermaid-js.github.io/mermaid/#/flowchart
+  [Flowcharts]: https://mermaid.js.org/syntax/flowchart.html
 
 ### Using sequence diagrams
 
@@ -91,6 +89,7 @@ between those actors:
 ```` markdown title="Sequence diagram"
 ``` mermaid
 sequenceDiagram
+  autonumber
   Alice->>John: Hello John, how are you?
   loop Healthcheck
       John->>John: Fight against hypochondria
@@ -106,6 +105,7 @@ sequenceDiagram
 
 ``` mermaid
 sequenceDiagram
+  autonumber
   Alice->>John: Hello John, how are you?
   loop Healthcheck
       John->>John: Fight against hypochondria
@@ -118,7 +118,7 @@ sequenceDiagram
 
 </div>
 
-  [Sequence diagrams]: https://mermaid-js.github.io/mermaid/#/sequenceDiagram
+  [Sequence diagrams]: https://mermaid.js.org/syntax/sequenceDiagram.html
 
 ### Using state diagrams
 
@@ -160,7 +160,7 @@ stateDiagram-v2
 
 </div>
 
-  [State diagrams]: https://mermaid-js.github.io/mermaid/#/stateDiagram
+  [State diagrams]: https://mermaid.js.org/syntax/stateDiagram.html
 
 ### Using class diagrams
 
@@ -232,7 +232,7 @@ classDiagram
 
 </div>
 
-  [Class diagrams]: https://mermaid-js.github.io/mermaid/#/classDiagram
+  [Class diagrams]: https://mermaid.js.org/syntax/classDiagram.html
 
 ### Using entity-relationship diagrams
 
@@ -245,6 +245,10 @@ a specific domain of knowledge:
 erDiagram
   CUSTOMER ||--o{ ORDER : places
   ORDER ||--|{ LINE-ITEM : contains
+  LINE-ITEM {
+    string name
+    int pricePerUnit
+  }
   CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
 ```
 ````
@@ -255,9 +259,27 @@ erDiagram
 erDiagram
   CUSTOMER ||--o{ ORDER : places
   ORDER ||--|{ LINE-ITEM : contains
+  LINE-ITEM {
+    string name
+    int pricePerUnit
+  }
   CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
 ```
 
 </div>
 
-  [entity-relationship diagram]: https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram
+  [entity-relationship diagram]: https://mermaid.js.org/syntax/entityRelationshipDiagram.html
+
+### Other diagram types
+
+Besides the diagram types listed above, [Mermaid.js] provides support for
+[pie charts], [gantt charts], [user journeys], [git graphs] and
+[requirement diagrams], all of which are not officially supported by Material
+for MkDocs. Those diagrams should still work as advertised by [Mermaid.js], but
+we don't consider them a good choice, mostly as they don't work well on mobile.
+
+  [pie charts]: https://mermaid.js.org/syntax/pie.html
+  [gantt charts]: https://mermaid.js.org/syntax/gantt.html
+  [user journeys]: https://mermaid.js.org/syntax/userJourney.html
+  [git graphs]: https://mermaid.js.org/syntax/gitgraph.html
+  [requirement diagrams]: https://mermaid.js.org/syntax/requirementDiagram.html

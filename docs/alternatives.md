@@ -1,7 +1,3 @@
----
-template: overrides/main.html
----
-
 # Alternatives
 
 There are tons of static site generators and themes out there and choosing the
@@ -26,12 +22,12 @@ __Challenges__
 
 - High learning curve, JavaScript knowledge mandatory
 - JavaScript ecosystem is very volatile, rather high maintenance
-- More time necessary needed to get up and running
+- More time needed to get up and running
 
 While [Docusaurus] is one of the best choices when it comes to documentation
-sites that output a single page applications, there are many more solutions,
+sites that output a single page application, there are many more solutions,
 including [Docz], [Gatsby], [Vuepress] and [Docsify] that approach
-this problem similarily.
+this problem similarly.
 
   [Docusaurus]: https://docusaurus.io/
   [React]: https://reactjs.org/
@@ -58,7 +54,7 @@ __Challenges__
 
 - Not specifically geared towards technical project documentation
 - Limited Markdown capabilities, not as advanced as Python Markdown
-- More time necessary needed to get up and running
+- More time needed to get up and running
 
   [Jekyll]: https://jekyllrb.com/
   [Ruby]: https://www.ruby-lang.org/de/
@@ -73,25 +69,23 @@ which some users find harder to use.
 __Advantages__
 
 - Very powerful, customizable and extendable
-- Generates reference documentation from [Python Docstrings]
+- Generates reference documentation from [Python docstrings]
 - Large and rich ecosystem, used by many Python projects
 
 __Challenges__
 
 - High learning curve, [reStructured text] syntax might be challenging
 - Search is less powerful than the one provided by MkDocs
-- More time necessary needed to get up and running
+- More time needed to get up and running
 
-[Sphinx Immaterial] is a great port of Material for MkDocs to Sphinx, as it
-follows the upstream repository closely. [Furo] is another great theme.
-Alternatively, [mkdocstrings] builds on top of Material for MkDocs to allow
-the generation of reference documentation.
+If you're considering using Sphinx because you need to generate reference
+documentation, you should give [mkdocstrings] a try – an actively maintained
+and popular framework building on top of MkDocs, implementing Sphinx-like
+functionality.
 
   [Sphinx]: https://www.sphinx-doc.org/
   [reStructured text]: https://en.wikipedia.org/wiki/ReStructuredText
-  [Python Docstrings]: https://www.python.org/dev/peps/pep-0257/
-  [Sphinx Immaterial]: https://github.com/jbms/sphinx-immaterial
-  [Furo]: https://pradyunsg.me/furo/
+  [Python docstrings]: https://www.python.org/dev/peps/pep-0257/
   [mkdocstrings]: https://github.com/mkdocstrings/mkdocstrings
 
 ## GitBook
